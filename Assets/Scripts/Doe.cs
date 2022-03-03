@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Doe : Animals
 {
+    [SerializeField] private TextMeshPro txt;
     // Start is called before the first frame update
     void Start()
     {
         health = 10f;
         points = 10;
+        speed = 5;
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        Run(speed);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +31,8 @@ public class Doe : Animals
     }
     public override string CallAnimal()
     {
-        return "Doe";
+        
+        txt.text = "Doe";
+        return txt.text;
     }
 }

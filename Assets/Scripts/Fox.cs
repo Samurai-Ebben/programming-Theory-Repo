@@ -8,6 +8,12 @@ public class Fox : Animals
     {
         health = 10f;
         points = 10;
+        speed = 7;
+    }
+
+    private void Update()
+    {
+        Run(speed);
     }
     private void OnTriggerEnter(Collider other)
     {
