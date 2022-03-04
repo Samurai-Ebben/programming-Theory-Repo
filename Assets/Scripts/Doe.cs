@@ -9,8 +9,8 @@ public class Doe : Animals
     // Start is called before the first frame update
     void Start()
     {
-        health = 10f;
-        points = 10;
+        health = 10;
+        points = 15;
         speed = 5;
         
     }
@@ -24,15 +24,15 @@ public class Doe : Animals
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log(CallAnimal());
-            Destroy(gameObject);
+            Destroy(other.gameObject);
+            TakeDamage();            
         }
         
     }
-    public override string CallAnimal()
+    public override void CallAnimal()
     {
-        
-        txt.text = "Doe";
-        return txt.text;
+        var txtShow = Instantiate(txt, transform.position, Quaternion.identity);
+        txtShow.GetComponent<TextMeshPro>().text = "Doe:" + points.ToString() + "+";
     }
+    
 }

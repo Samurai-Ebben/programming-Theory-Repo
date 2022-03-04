@@ -5,23 +5,40 @@ using UnityEngine;
 public class Animals : MonoBehaviour
 {
     public int points { get; protected set; }
-    public float health { get; protected set; }
+    public int health { get; protected set; }
 
     public float speed { get; protected set; }
+    protected int damage = 10;
 
-    public virtual string CallAnimal()
+    private GameManager gM;
+
+    private void Start()
     {
-        return "Animal";
+        gM = GetComponent<GameManager>();
+    }
+    public virtual void CallAnimal()
+    {
+        Debug.Log("Animal");
     }
 
-    public virtual IEnumerator DisplayText()
+    private void OnTriggerEnter(Collider other)
     {
-        yield return new WaitForSeconds(1.3f);
+        gM.scoreTxt.text = "score: " + points.ToString();
     }
-
-    public void Run(float speed)
+    protected void Run(float speed)
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
+    protected void TakeDamage()
+    {
+        health -= damage;
+        if(health <= 0)
+        {
+            CallAnimal();
+            Destroy(gameObject);
+        }
+    }
+
+     
 }

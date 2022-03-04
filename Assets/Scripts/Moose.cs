@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Moose : Animals
 {
+    [SerializeField] TextMeshPro txt;
+
     void Start()
     {
-        health = 20f;
+        health = 20;
         points = 20;
         speed = 10;
     }
@@ -20,12 +23,13 @@ public class Moose : Animals
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log(CallAnimal());
-            Destroy(gameObject);
+            Destroy(other.gameObject);
+            TakeDamage();
         }
     }
-    public override string CallAnimal()
+    public override void CallAnimal()
     {
-        return "Moose";
+        var txtShow = Instantiate(txt, transform.position, Quaternion.identity);
+        txtShow.GetComponent<TextMeshPro>().text = "Moose:" + points.ToString() + "+";
     }
 }
