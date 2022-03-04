@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class Fox : Animals
+public class Fox : Animals//Inheritance
 {
     [SerializeField] TextMeshPro txt;
     [SerializeField] ParticleSystem explode;

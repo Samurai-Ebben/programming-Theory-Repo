@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Doe : Animals
+public class Doe : Animals//Inheritance
 {
     [SerializeField] private TextMeshPro txt;
     // Start is called before the first frame update

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Moose : Animals
+public class Moose : Animals//Inheritance
 {
     [SerializeField] TextMeshPro txt;
 
