@@ -5,6 +5,7 @@ using TMPro;
 public class Fox : Animals
 {
     [SerializeField] TextMeshPro txt;
+    [SerializeField] ParticleSystem explode;
     void Start()
     {
         health = 10;
@@ -22,6 +23,7 @@ public class Fox : Animals
         {
             Destroy(other.gameObject);
             TakeDamage();
+            
         }
     }
     public override void CallAnimal()

@@ -12,33 +12,25 @@ public class Animals : MonoBehaviour
 
     private GameManager gM;
 
-    private void Start()
-    {
-        gM = GetComponent<GameManager>();
-    }
     public virtual void CallAnimal()
     {
         Debug.Log("Animal");
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        gM.scoreTxt.text = "score: " + points.ToString();
-    }
     protected void Run(float speed)
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
-    protected void TakeDamage()
+    protected virtual void TakeDamage()
     {
+        gM = GameObject.Find("GameManager").GetComponent<GameManager>();
         health -= damage;
         if(health <= 0)
         {
             CallAnimal();
             Destroy(gameObject);
+            gM.score += points;
         }
-    }
-
-     
+    }     
 }
