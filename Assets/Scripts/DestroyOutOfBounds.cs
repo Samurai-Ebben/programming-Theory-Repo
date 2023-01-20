@@ -16,7 +16,8 @@ public class DestroyOutOfBounds : MonoBehaviour
         else if(transform.position.z < -80 && !gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-            Debug.Log("GameOver");
+            GameManager.isOver = true;
+            Time.timeScale = 0;
         }
     }
 }

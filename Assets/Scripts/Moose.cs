@@ -6,6 +6,8 @@ using TMPro;
 public class Moose : Animals//Inheritance
 {
     [SerializeField] TextMeshPro txt;
+    [SerializeField] ParticleSystem explode;
+
 
     void Start()
     {
@@ -23,6 +25,7 @@ public class Moose : Animals//Inheritance
     {
         if (other.CompareTag("Player"))
         {
+            Instantiate(explode, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             TakeDamage();
         }

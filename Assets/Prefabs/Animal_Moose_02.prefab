@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txt: {fileID: 1563637146902394431, guid: cc00aaa801b19f24694a4cff8a710b18, type: 3}
+  explode: {fileID: 19886120, guid: 5702e2a6fea804b45b49b70d8feaf7ae, type: 3}
 --- !u!114 &-8757596798649851488
 MonoBehaviour:
   m_ObjectHideFlags: 0

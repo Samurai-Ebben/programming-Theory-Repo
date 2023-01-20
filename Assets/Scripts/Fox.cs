@@ -21,6 +21,7 @@ public class Fox : Animals//Inheritance
     {
         if (other.CompareTag("Player"))
         {
+            Instantiate(explode, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             TakeDamage();
             

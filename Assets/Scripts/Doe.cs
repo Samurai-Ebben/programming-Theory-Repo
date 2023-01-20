@@ -6,6 +6,8 @@ using TMPro;
 public class Doe : Animals//Inheritance
 {
     [SerializeField] private TextMeshPro txt;
+    [SerializeField] ParticleSystem explode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class Doe : Animals//Inheritance
     {
         if (other.CompareTag("Player"))
         {
+            Instantiate(explode, transform.position, Quaternion.identity);
             Destroy(other.gameObject);
             TakeDamage();            
         }
